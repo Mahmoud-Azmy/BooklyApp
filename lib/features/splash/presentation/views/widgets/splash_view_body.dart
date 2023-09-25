@@ -1,5 +1,8 @@
+import 'package:bookly_app/comsts.dart';
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -16,16 +19,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    const beginOne = Offset(0, 3);
-    const beginTwo = Offset(0, -10);
-    const end = Offset.zero;
-    animationOne =
-        Tween<Offset>(begin: beginOne, end: end).animate(animationController);
-    animationTwo =
-        Tween<Offset>(begin: beginTwo, end: end).animate(animationController);
-    animationController.forward();
+    initSlidingAnimation();
+
+    Future.delayed(const Duration(seconds: 2), () {
+      navigateToHomView();
+    });
   }
 
   @override
@@ -63,5 +61,25 @@ class _SplashViewBodyState extends State<SplashViewBody>
             })
       ],
     );
+  }
+
+  void initSlidingAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    const beginOne = Offset(0, 3);
+    const beginTwo = Offset(0, -10);
+    const end = Offset.zero;
+    animationOne =
+        Tween<Offset>(begin: beginOne, end: end).animate(animationController);
+    animationTwo =
+        Tween<Offset>(begin: beginTwo, end: end).animate(animationController);
+    animationController.forward();
+  }
+
+  void navigateToHomView() {
+    Get.to(() => const HomeView(),
+        transition: Transition.fade,
+        duration: kTranstionDuration,
+        curve: Curves.easeIn);
   }
 }
