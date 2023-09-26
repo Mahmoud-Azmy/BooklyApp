@@ -21,7 +21,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   image: const DecorationImage(
                       image: NetworkImage(
-                          'https://img.freepik.com/free-psd/halloween-celebration-poster-template_23-2150733079.jpg?w=740&t=st=1695639929~exp=1695640529~hmac=eb01b527d3c693a1cd3f7ae6522d6d3c4e17d256a95be12c0ab69cc215db5886'),
+                          'https://m.media-amazon.com/images/I/810jKiNChxL._AC_UF1000,1000_QL80_.jpg'),
                       fit: BoxFit.fill)),
             ),
           ),
