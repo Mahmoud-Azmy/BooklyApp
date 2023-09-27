@@ -1,9 +1,9 @@
 import 'package:bookly_app/consts.dart';
-import 'package:bookly_app/core/utils/routers.dart';
+import 'package:bookly_app/core/utils/animation_route.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_rating.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({
@@ -14,7 +14,7 @@ class BestSellerListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouters.kBookDetailsView);
+        Navigator.of(context).push(SlideRight(page: const BookDetailsView()));
       },
       child: SizedBox(
         height: 130,
@@ -24,7 +24,7 @@ class BestSellerListViewItem extends StatelessWidget {
               aspectRatio: 1.3 / 2,
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(8),
                     image: const DecorationImage(
                         image: NetworkImage(
                             'https://m.media-amazon.com/images/I/810jKiNChxL._AC_UF1000,1000_QL80_.jpg'),

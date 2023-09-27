@@ -26,5 +26,5 @@ class SlideRight extends PageRouteBuilder {
               //   ),
               // );
             },
-            transitionDuration: const Duration(seconds: 1));
+            transitionDuration: const Duration(milliseconds: 300));
 }

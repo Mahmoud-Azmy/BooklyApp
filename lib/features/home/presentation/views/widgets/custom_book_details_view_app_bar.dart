@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomBookDetailsViewAppBar extends StatelessWidget {
-  const CustomBookDetailsViewAppBar({super.key});
-
+  const CustomBookDetailsViewAppBar({super.key, this.onPressed});
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +11,7 @@ class CustomBookDetailsViewAppBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-              onPressed: () {}, icon: const Icon(FontAwesomeIcons.xmark)),
+              onPressed: onPressed, icon: const Icon(FontAwesomeIcons.xmark)),
           const Spacer(),
           const Icon(Icons.shopping_cart_outlined)
         ],
