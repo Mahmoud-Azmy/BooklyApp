@@ -5,8 +5,8 @@ import 'package:bookly_app/features/home/presentation/views/book_details_view.da
 import 'package:bookly_app/features/home/presentation/views/widgets/books_rating.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({
+class CustomBookDetailsItem extends StatelessWidget {
+  const CustomBookDetailsItem({
     super.key,
   });
 

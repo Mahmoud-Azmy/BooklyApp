@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_view_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_item.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListview extends StatelessWidget {
@@ -15,7 +15,7 @@ class BestSellerListview extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            return const BestSellerListViewItem();
+            return const CustomBookDetailsItem();
           },
           separatorBuilder: (context, index) => const SizedBox(
             height: 20,

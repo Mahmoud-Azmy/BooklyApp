@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_list_view_item.dart';
+import 'package:bookly_app/features/search/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:bookly_app/features/search/presentation/views/widgets/search_result_list_view.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -29,47 +29,6 @@ class SearchViewBody extends StatelessWidget {
           ),
           const SearchResultListView()
         ],
-      ),
-    );
-  }
-}
-
-class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        physics: const BouncingScrollPhysics(),
-        padding: EdgeInsets.zero,
-        itemBuilder: (context, index) {
-          return const BestSellerListViewItem();
-        },
-        separatorBuilder: (context, index) => const SizedBox(
-          height: 20,
-        ),
-        itemCount: 20,
-      ),
-    );
-  }
-}
-
-class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        suffixIcon: IconButton(
-            onPressed: () {},
-            icon: const Opacity(
-                opacity: .6, child: Icon(FontAwesomeIcons.magnifyingGlass))),
-        labelText: 'search',
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
     );
   }
