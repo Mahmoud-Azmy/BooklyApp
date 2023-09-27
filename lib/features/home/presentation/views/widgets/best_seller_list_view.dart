@@ -1,3 +1,5 @@
+import 'package:bookly_app/core/utils/animation_route.dart';
+import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_item.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,12 @@ class BestSellerListview extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            return const CustomBookDetailsItem();
+            return CustomBookDetailsItem(
+              onTap: () {
+                Navigator.of(context)
+                    .push(SlideRight(page: const BookDetailsView()));
+              },
+            );
           },
           separatorBuilder: (context, index) => const SizedBox(
             height: 20,

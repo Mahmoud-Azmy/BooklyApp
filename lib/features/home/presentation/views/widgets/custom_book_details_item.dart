@@ -1,21 +1,18 @@
 import 'package:bookly_app/consts.dart';
-import 'package:bookly_app/core/utils/animation_route.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_rating.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookDetailsItem extends StatelessWidget {
   const CustomBookDetailsItem({
     super.key,
+    this.onTap,
   });
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(SlideRight(page: const BookDetailsView()));
-      },
+      onTap: onTap,
       child: SizedBox(
         height: 130,
         child: Row(
