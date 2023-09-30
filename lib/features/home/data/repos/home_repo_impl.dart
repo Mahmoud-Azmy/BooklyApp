@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/errors/failuers.dart';
+import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/core/utils/api_service.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo.dart';
@@ -9,7 +9,7 @@ class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
   HomeRepoImpl(this.apiService);
   @override
-  Future<Either<Failuer, List<BookModel>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.getData(
           endPoint:
@@ -23,14 +23,14 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailuer.fromDioException(e));
+        return left(ServerFailure.fromDioException(e));
       }
-      return left(ServerFailuer(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failuer, List<BookModel>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.getData(
           endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
@@ -43,9 +43,9 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailuer.fromDioException(e));
+        return left(ServerFailure.fromDioException(e));
       }
-      return left(ServerFailuer(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 }
