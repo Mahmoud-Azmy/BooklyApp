@@ -11,7 +11,8 @@ class SearchResultListView extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          return const CustomBookDetailsItem();
+          return const Text('data');
+          // return const CustomBookDetailsItem();
         },
         separatorBuilder: (context, index) => const SizedBox(
           height: 20,
