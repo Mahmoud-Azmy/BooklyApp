@@ -22,12 +22,18 @@ class FeaturedbooksListView extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return const CustomBookImage();
+                  if (state.books[index].volumeInfo?.imageLinks?.thumbnail !=
+                      null) {
+                    return CustomBookImage(
+                        imageUrl: state
+                            .books[index].volumeInfo!.imageLinks!.thumbnail!);
+                  }
+                  return null;
                 },
                 separatorBuilder: (context, index) => const SizedBox(
                       width: 16,
                     ),
-                itemCount: 20),
+                itemCount: state.books.length),
           );
         } else if (state is FeaturedBooksFailure) {
           return ErrMessage(errMessage: state.errorMessage);
