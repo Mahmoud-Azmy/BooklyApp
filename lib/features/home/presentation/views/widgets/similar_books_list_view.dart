@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/navigate_to_book_details.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/core/widgets/err_message.dart';
 import 'package:bookly_app/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
@@ -23,10 +24,15 @@ class SimilarbooksListView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     if (state.books[index].volumeInfo!.imageLinks?.thumbnail !=
                         null) {
-                      return CustomBookImage(
-                          imageUrl: state.books[index].volumeInfo!.imageLinks
-                                  ?.thumbnail ??
-                              '');
+                      return GestureDetector(
+                        onTap: () {
+                          navigateToBookDetails(context, state, index);
+                        },
+                        child: CustomBookImage(
+                            imageUrl: state.books[index].volumeInfo!.imageLinks
+                                    ?.thumbnail ??
+                                ''),
+                      );
                     }
                     return null;
                   },

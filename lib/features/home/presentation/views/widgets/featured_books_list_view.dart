@@ -1,12 +1,8 @@
-import 'package:bookly_app/core/utils/animation_route.dart';
-import 'package:bookly_app/core/utils/service_locator.dart';
+import 'package:bookly_app/core/utils/navigate_to_book_details.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/core/widgets/err_message.dart';
-import 'package:bookly_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_state.dart';
-import 'package:bookly_app/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,20 +27,7 @@ class FeaturedbooksListView extends StatelessWidget {
                       null) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(
-                          SlideRight(
-                            page: BlocProvider(
-                              create: (context) => SimilarBooksCubit(
-                                getIt.get<HomeRepoImpl>(),
-                              )..fetchSimilarBooks(
-                                  category: state
-                                      .books[index].volumeInfo!.categories![0]),
-                              child: BookDetailsView(
-                                bookModel: state.books[index],
-                              ),
-                            ),
-                          ),
-                        );
+                        navigateToBookDetails(context, state, index);
                       },
                       child: CustomBookImage(
                           imageUrl: state
