@@ -42,13 +42,8 @@ class BestSellerListview extends StatelessWidget {
                                   category: state
                                       .books[index].volumeInfo!.categories![0]),
                               child: BookDetailsView(
-                                  imageUrl: state.books[index].volumeInfo!
-                                          .imageLinks!.thumbnail ??
-                                      '',
-                                  bookName:
-                                      state.books[index].volumeInfo!.title!,
-                                  bootAuther: state
-                                      .books[index].volumeInfo!.authors![0]),
+                                bookModel: state.books[index],
+                              ),
                             ),
                           ),
                         );
