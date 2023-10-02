@@ -44,7 +44,7 @@ class CustomBookDetailsItem extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    bookModel.volumeInfo!.authors![0],
+                    bookModel.volumeInfo!.authors?[0] ?? '',
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(

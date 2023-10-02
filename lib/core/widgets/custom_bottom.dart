@@ -9,13 +9,15 @@ class CustomBottom extends StatelessWidget {
       this.left = 0,
       this.color = Colors.black,
       required this.text,
-      this.fontSize = 20});
+      this.fontSize = 20,
+      this.onPressed});
   final Color backgroundColor;
   final String text;
   final Color color;
   final double fontSize;
   final double right;
   final double left;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -30,7 +32,7 @@ class CustomBottom extends StatelessWidget {
                       topRight: Radius.circular(right),
                       bottomLeft: Radius.circular(left),
                       bottomRight: Radius.circular(right)))),
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text(
             text,
             style: Styles.textStyle20.copyWith(
