@@ -13,7 +13,7 @@ class BooksAction extends StatelessWidget {
       child: Row(
         children: [
           const CustomBottom(
-            text: r'19.99 $',
+            text: 'Free',
             left: 16,
           ),
           Container(
