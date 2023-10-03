@@ -7,6 +7,8 @@ part 'search_books_state.dart';
 
 class SearchBooksCubit extends Cubit<SearchBooksState> {
   SearchBooksCubit(this.searchRepo) : super(SearchBooksInitial());
+
+  static SearchBooksCubit get(context) => BlocProvider.of(context);
   final SearchRepo searchRepo;
   Future<void> fetchSearchBooksResult({required String bookName}) async {
     emit(SearchBooksLoading());

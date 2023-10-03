@@ -1,7 +1,11 @@
 import 'package:bookly_app/core/utils/animation_route.dart';
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/core/utils/service_locator.dart';
+import 'package:bookly_app/features/search/data/repos/search_repo_impl.dart';
+import 'package:bookly_app/features/search/presentation/manager/cubit/search_books_cubit.dart';
 import 'package:bookly_app/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -20,8 +24,11 @@ class CustomAppBar extends StatelessWidget {
           const Spacer(),
           IconButton(
               onPressed: () {
-                Navigator.of(context)
-                    .push(SlideRight(page: const SearchView()));
+                Navigator.of(context).push(SlideRight(
+                    page: BlocProvider(
+                        create: (context) =>
+                            SearchBooksCubit(getIt.get<SearchRepoImpl>()),
+                        child: const SearchView())));
               },
               icon: const Icon(FontAwesomeIcons.magnifyingGlass))
         ],
