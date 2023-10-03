@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/utils/navigate_to_book_details.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly_app/core/widgets/book_details_loading_list_view.dart';
 import 'package:bookly_app/core/widgets/err_message.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_item.dart';
 import 'package:bookly_app/features/search/presentation/manager/cubit/search_books_cubit.dart';
@@ -37,7 +37,7 @@ class SearchResultListView extends StatelessWidget {
         } else if (state is SearchBooksFailure) {
           return ErrMessage(errMessage: state.errorMessage);
         } else if (state is SearchBooksLoading) {
-          return const CustomLoadingIndicator();
+          return const Expanded(child: BookDetailsLoadingListView());
         } else {
           return const Center(
               child: Text(

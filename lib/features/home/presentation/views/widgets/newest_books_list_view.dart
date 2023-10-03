@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/utils/navigate_to_book_details.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly_app/core/widgets/book_details_loading_list_view.dart';
 import 'package:bookly_app/core/widgets/err_message.dart';
 import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newestt_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_item.dart';
@@ -46,7 +46,7 @@ class BestSellerListview extends StatelessWidget {
           return SliverToBoxAdapter(
               child: ErrMessage(errMessage: state.errorMessage));
         }
-        return const SliverToBoxAdapter(child: CustomLoadingIndicator());
+        return const SliverToBoxAdapter(child: BookDetailsLoadingListView());
       },
     );
   }
